@@ -21,11 +21,12 @@ public class Goal {
     private String description;
     private LocalDateTime time;
     private String format;
-//    @OneToOne
-//    @JoinColumn(name = "assist_id")
-//    private Assist assist;
 
     @OneToOne(mappedBy = "goal", cascade = CascadeType.ALL)
     private Assist assist;
+
+    @ManyToOne
+    @JoinColumn(name = "player_participation_id")
+    private PlayerParticipation playerParticipation;
 }
 

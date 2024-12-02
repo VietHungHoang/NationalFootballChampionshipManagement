@@ -8,18 +8,22 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Table(name = "nationalities")
+@Table(name = "team_participation")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Nationality {
-
+public class TeamParticipation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String description;
+    private Integer  result;
+    private String role;
 
-    @OneToMany(mappedBy = "nationality", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Player> players;
+    @ManyToOne
+    @JoinColumn(name = "match_id")
+    private Match match;
+
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
 }

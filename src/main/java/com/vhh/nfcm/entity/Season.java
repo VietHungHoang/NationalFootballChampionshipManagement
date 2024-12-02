@@ -5,21 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "nationalities")
+@Table(name = "seasons")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Nationality {
-
+public class Season {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;
-
-    @OneToMany(mappedBy = "nationality", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Player> players;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    @OneToMany(mappedBy = "season", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Round> rounds;
 }

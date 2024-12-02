@@ -5,21 +5,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table(name = "nationalities")
+@Table(name = "team_stadium")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Nationality {
-
+public class TeamStadium {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String description;
 
-    @OneToMany(mappedBy = "nationality", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Player> players;
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
+
+    @ManyToOne
+    @JoinColumn(name = "stadium_id")
+    private Stadium stadium;
 }

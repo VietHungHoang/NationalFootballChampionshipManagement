@@ -8,27 +8,23 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "assists")
+@Table(name = "contracts")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Assist {
-
+public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    private String description;
-
-    private LocalDateTime time;
-
-    private String format;
-
-    @OneToOne
-    @JoinColumn(name = "goal_id")
-    private Goal goal;
+    private LocalDateTime start_date;
+    private LocalDateTime end_date;
+    private String position;
 
     @ManyToOne
-    @JoinColumn(name = "player_participation_id")
-    private PlayerParticipation playerParticipation;
+    @JoinColumn(name = "team_id")
+    private Team team;
+
+    @ManyToOne
+    @JoinColumn(name = "player_id")
+    private Player player;
 }

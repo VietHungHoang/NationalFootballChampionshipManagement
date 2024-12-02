@@ -6,21 +6,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "cards")
+@Table(name = "player_substitution")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Card {
+public class PlayerSubstitution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String type;
+    private String role;
 
     @ManyToOne
     @JoinColumn(name = "player_participation_id")
     private PlayerParticipation playerParticipation;
 
-    @OneToOne
-    @JoinColumn(name = "foul_id")
-    private Foul foul;
+    @ManyToOne
+    @JoinColumn(name = "substitution_id")
+    private Substitution substitution;
 }
