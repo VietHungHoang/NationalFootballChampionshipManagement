@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Nationality Championship Management</title>
+    <style>
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #57c5b6;
+            --background-color: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            --primary-color: #57c5b6;
+            --secondary-color: #1a5f7a;
+            --background-color: #333333;
+            --text-color: #ffffff;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            background-image: url('https://placeholder.svg?height=400&width=1200');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .matches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .match-card {
+            border: 1px solid var(--secondary-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        #dark-mode-toggle {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="#" style="font-size: 1.5rem; font-weight: bold;">FootballNation</a>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="#">Results</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+            <button id="dark-mode-toggle">Toggle Dark Mode</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Football Nationality Championship 2024</h1>
+    </section>
+
+    <main>
+        <h2>Upcoming Matches</h2>
+        <div class="matches">
+            <div class="match-card">
+                <h3>France vs Germany</h3>
+                <p>Date: June 15, 2024</p>
+                <p>Time: 20:00 CET</p>
+                <p>Venue: Stade de France, Paris</p>
+            </div>
+            <div class="match-card">
+                <h3>Spain vs Italy</h3>
+                <p>Date: June 16, 2024</p>
+                <p>Time: 20:00 CET</p>
+                <p>Venue: Santiago Bernabéu, Madrid</p>
+            </div>
+            <div class="match-card">
+                <h3>England vs Netherlands</h3>
+                <p>Date: June 17, 2024</p>
+                <p>Time: 20:00 CET</p>
+                <p>Venue: Wembley Stadium, London</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Football Nationality Championship Management. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>
+
